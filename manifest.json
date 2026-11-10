@@ -2171,10 +2171,10 @@
         },
         "quince_blog": {
             "repository": "quinceproject/quince_blog",
-            "version": "0.4.0",
-            "package": "https://github.com/quinceproject/quince_blog/releases/download/v0.4.0/quince_blog.zip",
-            "sha256": "beafe2aa2fff1729b0cabd3eda13471cb3a2ecadf0e8d51d3a5964406e3bbf81",
-            "notes": "https://github.com/quinceproject/quince_blog/releases/tag/v0.4.0"
+            "version": "0.4.1",
+            "package": "https://github.com/quinceproject/quince_blog/releases/download/v0.4.1/quince_blog.zip",
+            "sha256": "2a4e5c1045e11ae28baf0c6a908d914bd290cd4a5683bbeb8e55f62a3dfa6279",
+            "notes": "https://github.com/quinceproject/quince_blog/releases/tag/v0.4.1"
         },
         "quince_cmp": {
             "repository": "quinceproject/quince_cmp",
