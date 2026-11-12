@@ -1,6 +1,6 @@
 {
     "robots": {
-        "updated": "2026-11-10",
+        "updated": "2026-11-12",
         "source": "https://github.com/ai-robots-txt/ai.robots.txt",
         "bots": {
             "addsearchbot": {
@@ -701,7 +701,7 @@
                 "label": "Diffbot-User",
                 "vendor": "Diffbot",
                 "category": "other",
-                "description": "Diffbot-User is used by requests originating on behalf of a human user browsing a URL using Diffbot software, in response to their input. Documented by Diffbot at https://docs.diffbot.com/docs/does-crawl-respect-robotstxt",
+                "description": "Diffbot-User fetches URLs on behalf of human users interacting with Diffbot software.",
                 "docs_url": "https://www.diffbot.com/",
                 "verify_host": "",
                 "respects": "yes",
@@ -971,6 +971,17 @@
                 "respects": "unclear",
                 "default_policy": "allow"
             },
+            "google-gemininotebook": {
+                "token": "Google-GeminiNotebook",
+                "label": "Google-GeminiNotebook",
+                "vendor": "",
+                "category": "other",
+                "description": "Google-GeminiNotebook fetches individual URLs that users add as sources in Gemini Notebook so Google can analyze and summarize their content.",
+                "docs_url": "",
+                "verify_host": "",
+                "respects": "unclear",
+                "default_policy": "allow"
+            },
             "google-notebooklm": {
                 "token": "Google-NotebookLM",
                 "label": "Google-NotebookLM",
@@ -1088,6 +1099,17 @@
                 "category": "other",
                 "description": "Used to collect publicly available web content to support the training of Grok AI models.",
                 "docs_url": "https://x.ai",
+                "verify_host": "",
+                "respects": "unclear",
+                "default_policy": "allow"
+            },
+            "haiku-searchbot": {
+                "token": "Haiku-SearchBot",
+                "label": "Haiku-SearchBot",
+                "vendor": "",
+                "category": "other",
+                "description": "Haiku-SearchBot retrieves webpages in response to user requests through Haiku's legal AI services.",
+                "docs_url": "",
                 "verify_host": "",
                 "respects": "unclear",
                 "default_policy": "allow"
@@ -1345,6 +1367,17 @@
                 "respects": "unclear",
                 "default_policy": "block"
             },
+            "liner-user": {
+                "token": "Liner-User",
+                "label": "Liner-User",
+                "vendor": "",
+                "category": "other",
+                "description": "Liner-User fetches web content for Liner to answer user questions with cited information.",
+                "docs_url": "",
+                "verify_host": "",
+                "respects": "unclear",
+                "default_policy": "allow"
+            },
             "linerbot": {
                 "token": "LinerBot",
                 "label": "LinerBot",
@@ -1418,6 +1451,17 @@
                 "category": "answer",
                 "description": "As per their documentation, \"The Meta-WebIndexer crawler navigates the web to improve Meta AI search result quality for users.",
                 "docs_url": "https://developers.facebook.com/docs/sharing/webmasters/web-crawlers/",
+                "verify_host": "",
+                "respects": "unclear",
+                "default_policy": "allow"
+            },
+            "minimaxagent": {
+                "token": "MiniMaxAgent",
+                "label": "MiniMaxAgent",
+                "vendor": "",
+                "category": "other",
+                "description": "MiniMaxAgent browses and uses online information to complete complex user-directed tasks in MiniMax Agent.",
+                "docs_url": "",
                 "verify_host": "",
                 "respects": "unclear",
                 "default_policy": "allow"
