@@ -13,26 +13,32 @@ declare(strict_types=1);
  * Writes the "modules" and "themes" sections of manifest.json from the latest
  * GitHub release of every repository in the organisation.
  *
- * Usage: GH_TOKEN=... php scripts/build-releases.php <manifest.json> [<organisation>]
+ * Usage: GH_TOKEN=... php scripts/build-releases.php <manifest.json> [<organisation>] [<packages.json>]
  *
  * A repository counts when its latest release carries a ZIP named after the
  * repository (quince_search.zip in quince_search). Repositories with the topic
  * "prestashop-theme" go to "themes", the rest to "modules". The package is
  * downloaded once to record its SHA-256, which modules check before they install
  * an update. Other sections of the manifest are left as they are.
+ *
+ * With a third argument the script also writes a Composer repository: every
+ * release ZIP of every repository as a version of "quinceproject/<name>". The
+ * ZIP is the same one the back office installs, with the module's own vendor/,
+ * because a PrestaShop shop has no composer.json of its own to add packages to.
  */
 
-[$script, $manifestFile, $org] = array_pad($argv, 3, null);
+[$script, $manifestFile, $org, $packagesFile] = array_pad($argv, 4, null);
 $org ??= 'quinceproject';
 
 if ($manifestFile === null) {
-    fwrite(STDERR, "Usage: php build-releases.php <manifest.json> [<organisation>]\n");
+    fwrite(STDERR, "Usage: php build-releases.php <manifest.json> [<organisation>] [<packages.json>]\n");
     exit(1);
 }
 
 $token = (string) getenv('GH_TOKEN');
 $modules = [];
 $themes = [];
+$composer = [];
 
 foreach (api("/orgs/{$org}/repos?per_page=100&type=public", $token) as $repo) {
     $name = (string) $repo['name'];
@@ -72,10 +78,16 @@ foreach (api("/orgs/{$org}/repos?per_page=100&type=public", $token) as $repo) {
         'notes' => (string) $release['html_url'],
     ];
 
-    if (in_array('prestashop-theme', (array) ($repo['topics'] ?? []), true)) {
+    $isTheme = in_array('prestashop-theme', (array) ($repo['topics'] ?? []), true);
+
+    if ($isTheme) {
         $themes[$name] = $entry;
     } else {
         $modules[$name] = $entry;
+    }
+
+    if ($packagesFile !== null) {
+        $composer += composerVersions($org, $name, $isTheme, (string) ($repo['license']['spdx_id'] ?? ''), $token);
     }
 
     echo "{$name} {$entry['version']}\n";
@@ -98,7 +110,56 @@ file_put_contents($manifestFile, json_encode($manifest, JSON_PRETTY_PRINT | JSON
 
 echo 'Modules: ' . count($modules) . ', themes: ' . count($themes) . "\n";
 
+if ($packagesFile !== null) {
+    ksort($composer);
+    file_put_contents($packagesFile, json_encode(['packages' => $composer], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "\n");
+    echo 'Composer packages: ' . count($composer) . "\n";
+}
+
 // ---------------------------------------------------------------- helpers
+
+/**
+ * Every published release of one repository as Composer versions.
+ *
+ * The package name follows the repository: quince_search becomes
+ * quinceproject/search, the theme repository becomes quinceproject/theme.
+ * `installer-name` keeps the folder name PrestaShop expects (modules/quince_search),
+ * since composer/installers would otherwise use the package name.
+ *
+ * @return array<string,array<string,array<string,mixed>>>
+ */
+function composerVersions(string $org, string $repo, bool $isTheme, string $license, string $token): array
+{
+    $package = $org . '/' . ($isTheme ? 'theme' : str_replace('_', '-', (string) preg_replace('/^quince_/', '', $repo)));
+    $versions = [];
+
+    foreach (api("/repos/{$org}/{$repo}/releases?per_page=100", $token) as $release) {
+        if (!empty($release['draft']) || !empty($release['prerelease'])) {
+            continue;
+        }
+
+        foreach ((array) ($release['assets'] ?? []) as $asset) {
+            if (($asset['name'] ?? '') !== "{$repo}.zip") {
+                continue;
+            }
+
+            $version = ltrim((string) $release['tag_name'], 'vV');
+            $versions[$version] = [
+                'name' => $package,
+                'version' => $version,
+                'type' => $isTheme ? 'prestashop-theme' : 'prestashop-module',
+                'license' => $license !== '' && $license !== 'NOASSERTION' ? [$license] : [],
+                'homepage' => "https://github.com/{$org}/{$repo}",
+                'require' => ['composer/installers' => '^2.0'],
+                'extra' => ['installer-name' => $repo],
+                'dist' => ['type' => 'zip', 'url' => (string) $asset['browser_download_url']],
+                'time' => (string) ($release['published_at'] ?? ''),
+            ];
+        }
+    }
+
+    return $versions === [] ? [] : [$package => $versions];
+}
 
 /** @return array<mixed>|null */
 function api(string $path, string $token, bool $allowMissing = false): ?array

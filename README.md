@@ -3,9 +3,9 @@
 **The index Quince modules read at https://quinceproject.github.io/manifest.json: the
 crawler list and the latest releases.**
 
-This repository is published with GitHub Pages and serves one file, `manifest.json`.
-Quince modules installed in shops download it once a day. There is nothing here to
-install.
+This repository is published with GitHub Pages and serves two files: `manifest.json`,
+which Quince modules installed in shops download once a day, and `packages.json`, the
+Composer repository of every Quince release. There is nothing here to install.
 
 The manifest carries two things:
 
@@ -72,6 +72,38 @@ Each package is downloaded once to record its SHA-256.
 A new release shows up in the manifest at the next run, so within a day. To publish
 it straight away, run the workflow by hand (**Actions → Sync manifest → Run
 workflow**).
+
+## Composer repository
+
+The same step writes `packages.json`: every release of every repository as a Composer
+package, `quinceproject/<name>` (`quince_search` becomes `quinceproject/search`, the
+theme is `quinceproject/theme`). The package is the release ZIP, the same one the back
+office installs, with the module's own `vendor/` inside.
+
+A PrestaShop shop ships without a `composer.json` of its own, and running
+`composer require` in its root would replace the shop's `vendor/` folder. Quince
+packages are therefore installed from a separate folder next to the shop, and
+[composer/installers](https://github.com/composer/installers) puts each one in
+`modules/` or `themes/`. Once, in the shop's root directory:
+
+```sh
+mkdir quince && cd quince
+echo '{}' > composer.json
+composer config repositories.quince composer https://quinceproject.github.io
+composer config allow-plugins.composer/installers true
+composer config extra.installer-paths --json '{"../modules/{$name}/": ["type:prestashop-module"], "../themes/{$name}/": ["type:prestashop-theme"]}'
+```
+
+Then, from the same folder, for each package:
+
+```sh
+composer require "quinceproject/engine:*"
+php ../bin/console prestashop:module install quince_engine
+```
+
+Composer only puts the files in place. Installing the module, and running its upgrade
+after `composer update`, is still done by PrestaShop: in the back office or with
+`bin/console prestashop:module install` and `prestashop:module upgrade`.
 
 ## Describing a bot
 
