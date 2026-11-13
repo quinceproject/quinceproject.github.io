@@ -2276,6 +2276,13 @@
             "sha256": "faf74288733861a535ae34bcba23132bb1933c55fefe1a682c6319dc826e1174",
             "notes": "https://github.com/quinceproject/quince_gpsr/releases/tag/v0.1.1"
         },
+        "quince_insight": {
+            "repository": "quinceproject/quince_insight",
+            "version": "0.1.0",
+            "package": "https://github.com/quinceproject/quince_insight/releases/download/v0.1.0/quince_insight.zip",
+            "sha256": "2a59f277da4dbe0e5ab6a4d72e3085f6d5fd0a0cedc46d0b948ee060dfec6058",
+            "notes": "https://github.com/quinceproject/quince_insight/releases/tag/v0.1.0"
+        },
         "quince_linkblocks": {
             "repository": "quinceproject/quince_linkblocks",
             "version": "0.1.1",
