@@ -631,6 +631,24 @@
             }
         },
         "quinceproject/gpsr": {
+            "0.1.3": {
+                "name": "quinceproject/gpsr",
+                "version": "0.1.3",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_gpsr",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_gpsr"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_gpsr/releases/download/v0.1.3/quince_gpsr.zip"
+                },
+                "time": "2026-11-13T15:09:34Z"
+            },
             "0.1.2": {
                 "name": "quinceproject/gpsr",
                 "version": "0.1.2",
