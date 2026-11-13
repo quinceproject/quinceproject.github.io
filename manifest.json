@@ -2250,10 +2250,10 @@
         },
         "quince_engine": {
             "repository": "quinceproject/quince_engine",
-            "version": "0.5.10",
-            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.5.10/quince_engine.zip",
-            "sha256": "5cd4b45920d034bf7f2ae264baccf53ee0aab70333dfd7a62bc7697b6a9d3a4b",
-            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.5.10"
+            "version": "0.6.0",
+            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.6.0/quince_engine.zip",
+            "sha256": "6d8ad09529599b3d09d740711a44a760950edf42c99d1909e3e8a32e5ad8ee9a",
+            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.6.0"
         },
         "quince_events": {
             "repository": "quinceproject/quince_events",
@@ -2280,7 +2280,7 @@
             "repository": "quinceproject/quince_insight",
             "version": "0.1.0",
             "package": "https://github.com/quinceproject/quince_insight/releases/download/v0.1.0/quince_insight.zip",
-            "sha256": "03dff7c5350c6194df86b46b0a84ee40c7c932bfd8aa0601f73d7164c9e7b877",
+            "sha256": "ae841e6a608a82fe8783bcdac9458f69fc20d952b14b0aaf313c77594d28884e",
             "notes": "https://github.com/quinceproject/quince_insight/releases/tag/v0.1.0"
         },
         "quince_linkblocks": {
