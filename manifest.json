@@ -2280,7 +2280,7 @@
             "repository": "quinceproject/quince_insight",
             "version": "0.1.0",
             "package": "https://github.com/quinceproject/quince_insight/releases/download/v0.1.0/quince_insight.zip",
-            "sha256": "2a59f277da4dbe0e5ab6a4d72e3085f6d5fd0a0cedc46d0b948ee060dfec6058",
+            "sha256": "03dff7c5350c6194df86b46b0a84ee40c7c932bfd8aa0601f73d7164c9e7b877",
             "notes": "https://github.com/quinceproject/quince_insight/releases/tag/v0.1.0"
         },
         "quince_linkblocks": {
