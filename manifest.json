@@ -2271,10 +2271,10 @@
         },
         "quince_gpsr": {
             "repository": "quinceproject/quince_gpsr",
-            "version": "0.1.4",
-            "package": "https://github.com/quinceproject/quince_gpsr/releases/download/v0.1.4/quince_gpsr.zip",
-            "sha256": "b71702eab17a9c78701431395e62f764204cf476bd06f2f51f4148c9d5993d7f",
-            "notes": "https://github.com/quinceproject/quince_gpsr/releases/tag/v0.1.4"
+            "version": "0.1.5",
+            "package": "https://github.com/quinceproject/quince_gpsr/releases/download/v0.1.5/quince_gpsr.zip",
+            "sha256": "14163570d13f39f73293d64b027f77a71f99ddd1d12a3de237ce109cf1f5135a",
+            "notes": "https://github.com/quinceproject/quince_gpsr/releases/tag/v0.1.5"
         },
         "quince_insight": {
             "repository": "quinceproject/quince_insight",
