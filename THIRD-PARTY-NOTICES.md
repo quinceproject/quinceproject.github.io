@@ -1,5 +1,13 @@
 # Third-party notices
 
+The project page (`index.html`) uses two fonts, served from `assets/fonts/` under the
+SIL Open Font License 1.1. The licence texts are next to the font files.
+
+- **Instrument Sans**, Copyright 2022 The Instrument Sans Project Authors
+  (https://github.com/Instrument/instrument-sans): `assets/fonts/OFL-instrument-sans.txt`.
+- **DM Mono**, Copyright 2020 The DM Mono Project Authors
+  (https://www.github.com/googlefonts/dm-mono): `assets/fonts/OFL-dm-mono.txt`.
+
 The bot list in `manifest.json` is built from
 [ai-robots-txt/ai.robots.txt](https://github.com/ai-robots-txt/ai.robots.txt), used under
 the MIT License reproduced below. The categories, verification hosts and

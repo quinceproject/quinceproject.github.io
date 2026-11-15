@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quince Project: theme and content engine for PrestaShop</title>
+<meta name="description" content="A theme and content engine for PrestaShop, extended with a suite of functional modules. Free and open source under OSL-3.0.">
+<link rel="canonical" href="https://quinceproject.github.io/">
+<link rel="icon" type="image/png" href="assets/quince.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://quinceproject.github.io/">
+<meta property="og:title" content="Quince Project">
+<meta property="og:description" content="A theme and content engine for PrestaShop, extended with a suite of functional modules.">
+<meta property="og:image" content="https://quinceproject.github.io/assets/quince.png">
+<meta name="twitter:card" content="summary">
+<link rel="preload" href="assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Fonts are served from this site, not from Google Fonts. Licences in assets/fonts/. */
+  @font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url(assets/fonts/instrument-sans-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url(assets/fonts/instrument-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'DM Mono';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/dm-mono-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:'DM Mono';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/dm-mono-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'DM Mono';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/dm-mono-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:'DM Mono';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/dm-mono-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+  /* Pastels from the Quince logo: amber of the fruit, violet of the PrestaShop
+     badge, sky blue of the glow; navy for text and dark sections */
+  :root{
+    --ink:#161b28;
+    --navy:#0b1730;
+    --charcoal:#1f2533;
+    --muted:#5d6576;
+    --line:#dfe3ea;
+    --bg:#f3f5f8;
+    --white:#ffffff;
+    --amber:#ffc56b;
+    --amber-soft:#ffecc9;
+    --amber-text:#df9318;
+    --lilac:#b8aef6;
+    --lilac-soft:#e9e5fd;
+    --lilac-text:#7f73ea;
+    --sky:#8fd3f7;
+    --sky-soft:#dff2fd;
+    --sky-text:#2f9fd8;
+    --font:'Instrument Sans',Arial,sans-serif;
+    --mono:'DM Mono',Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1328px;margin:0 auto;padding-inline:56px}
+  .up{text-transform:uppercase;letter-spacing:.02em}
+
+  /* Opening: soft pastel glow and slanted beams, like light through glass */
+  .hero{position:relative;overflow:hidden;background:var(--bg)}
+  .hero-wash{position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(60% 70% at 8% 10%,rgba(255,197,107,.55),transparent 70%),
+      radial-gradient(45% 60% at 62% 0%,rgba(184,174,246,.55),transparent 70%),
+      radial-gradient(50% 70% at 100% 20%,rgba(143,211,247,.6),transparent 70%)}
+  .beam{position:absolute;top:-10%;width:150px;height:80%;background:rgba(255,255,255,.35);transform:skewY(-18deg);pointer-events:none}
+  .beam.b1{left:6%}
+  .beam.b2{left:24%;width:90px;background:rgba(255,255,255,.25)}
+  .beam.b3{left:58%;width:120px}
+  .beam.b4{left:78%;width:60px;background:rgba(255,255,255,.3)}
+  .hero > .wrap{position:relative;z-index:1}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:96px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:19px;text-decoration:none;letter-spacing:-.01em}
+  .brand img{width:32px;height:32px;border-radius:50%}
+  .bar nav{display:flex;align-items:center;gap:36px;font-size:15px}
+  .bar nav a{text-decoration:none}
+  .bar nav a:hover{color:var(--lilac-text)}
+  .btn{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 28px;font-weight:500;font-size:16px;text-decoration:none;background:var(--charcoal);color:#fff;transition:background .15s}
+  .btn:hover{background:var(--navy)}
+  .bar nav a.btn:hover{color:#fff}
+  .btn svg{width:18px;height:18px;fill:currentColor}
+  .btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px rgba(22,27,40,.35)}
+  .btn-line:hover{background:rgba(255,255,255,.5)}
+  .bar .btn{height:48px;padding:0 22px}
+  .hero h1{margin:0;padding-top:120px;font-size:clamp(56px,8.4vw,120px);line-height:.98;letter-spacing:-.045em;font-weight:400;max-width:12ch}
+  .hero-sub{margin:36px 0 0;font-size:22px;line-height:1.45;max-width:34rem}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:44px}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:120px;padding-block:28px 40px;border-top:1px solid rgba(22,27,40,.15);font-size:15px;color:var(--muted)}
+  .facts b{display:block;color:var(--ink);font-weight:500;font-size:17px}
+
+  /* Statement with coloured words */
+  .statement{padding-block:160px}
+  .statement p{margin:0 auto;max-width:1000px;font-size:clamp(32px,4.2vw,56px);line-height:1.15;letter-spacing:-.03em;text-wrap:balance}
+  .statement span{white-space:nowrap}
+  .statement .k1{color:var(--amber-text)}
+  .statement .k2{color:var(--lilac-text)}
+  .statement .k3{color:var(--sky-text)}
+  .chip{display:inline-block;width:.62em;height:.62em;vertical-align:.08em;margin-left:.12em;clip-path:polygon(0 0,100% 18%,100% 100%,0 82%)}
+
+  /* Engine and theme: diagram */
+  .duo{background:var(--white);padding-block:136px}
+  .duo-head{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end}
+  .label{font-family:var(--mono);font-size:13px;color:var(--muted);margin:0 0 20px}
+  h2{margin:0;font-size:clamp(36px,4.6vw,64px);line-height:1.04;letter-spacing:-.04em;font-weight:400;text-wrap:balance}
+  .duo-head p{margin:0;font-size:19px;color:var(--muted);max-width:32rem}
+  .diagram{position:relative;display:grid;grid-template-columns:1fr 120px 1.25fr;align-items:center;margin-top:80px;padding:56px;background:var(--bg);
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:32px 32px}
+  .panel{background:var(--white);box-shadow:0 1px 0 var(--line),0 18px 40px -24px rgba(11,23,48,.35);display:grid;grid-template-columns:120px 1fr;min-height:300px}
+  .panel-side{border-right:1px solid var(--line);padding:18px 0}
+  .panel-side .t{font-size:12px;font-weight:600;padding:0 16px 12px}
+  .panel-side span{display:block;font-size:13px;padding:7px 16px;color:var(--muted)}
+  .panel-side span.on{color:var(--ink);background:var(--amber-soft);box-shadow:inset 2px 0 0 var(--amber-text)}
+  .panel-main{padding:20px}
+  .row-l{font-family:var(--mono);font-size:11px;color:var(--muted);margin:0 0 8px}
+  .sw{display:flex;gap:6px;margin-bottom:22px}
+  .sw i{width:30px;height:30px;display:block}
+  .type{display:flex;align-items:baseline;gap:12px;margin-bottom:22px}
+  .type b{font-size:40px;font-weight:500;line-height:1;letter-spacing:-.03em}
+  .type span{font-size:12px;color:var(--muted)}
+  .grid-l{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+  .grid-l i{height:22px;background:var(--lilac-soft);display:block}
+  .link{position:relative;height:2px;background:var(--amber-text);margin-inline:8px}
+  .link::after{content:'';position:absolute;right:-2px;top:-5px;border:6px solid transparent;border-left:9px solid var(--amber-text);border-right:0}
+  .shop{background:var(--white);box-shadow:0 1px 0 var(--line),0 18px 40px -24px rgba(11,23,48,.35)}
+  .shop-bar{display:flex;gap:5px;padding:10px 12px;border-bottom:1px solid var(--line)}
+  .shop-bar i{width:8px;height:8px;border-radius:50%;background:var(--line);display:block}
+  .shop-body{padding:16px}
+  .s-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .s-head b{font-size:14px;font-weight:600}
+  .s-head span{display:flex;gap:10px}
+  .s-head span i{width:28px;height:6px;background:var(--line);display:block}
+  .s-hero{height:96px;background:linear-gradient(110deg,var(--amber) 0%,var(--amber-soft) 100%);display:flex;align-items:flex-end;padding:12px;margin-bottom:12px}
+  .s-hero i{display:block;width:80px;height:20px;background:var(--charcoal)}
+  .s-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .s-grid div{height:76px;background:var(--bg);position:relative}
+  .s-grid div::after{content:'';position:absolute;left:8px;bottom:8px;width:50%;height:6px;background:var(--line)}
+
+  /* Module groups: full-width pastel bands */
+  .groups{padding-block:136px 120px}
+  .groups-head{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;margin-bottom:72px}
+  .grp{padding:44px 44px 48px;scroll-margin-top:24px}
+  .grp + .grp{margin-top:4px}
+  .g-amber{background:var(--amber-soft);--gc:var(--amber-text)}
+  .g-lilac{background:var(--lilac-soft);--gc:var(--lilac-text)}
+  .g-sky{background:var(--sky-soft);--gc:var(--sky-text)}
+  .grp-top{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-bottom:36px;border-bottom:1px solid rgba(22,27,40,.12)}
+  .grp-name{margin:0;font-size:24px;letter-spacing:-.01em;display:flex;gap:18px;align-items:baseline}
+  .grp-name small{font-family:var(--mono);font-size:15px;color:var(--muted)}
+  .grp-top h3{margin:14px 0 0;font-size:36px;line-height:1.08;letter-spacing:-.035em;font-weight:400}
+  .grp-top p{margin:0;font-size:17px;color:#3e4658;align-self:end}
+  .mods{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 40px;margin-top:36px}
+  .mods h4{margin:0;font-size:18px;font-weight:600;letter-spacing:-.01em;transition:color .15s}
+  /* The link on the name covers the whole entry; the arrow shows on hover */
+  .mods > div{position:relative}
+  .mods h4 a{text-decoration:none;color:inherit}
+  .mods h4 a::after{content:'';position:absolute;inset:-14px}
+  .mods h4 a:focus-visible{outline:none}
+  .mods > div:has(a:focus-visible){outline:2px solid var(--gc);outline-offset:10px}
+  .mods h4::after{content:'↗';display:inline-block;margin-left:6px;opacity:0;transform:translate(-4px,2px);transition:opacity .15s,transform .15s}
+  .mods > div:hover h4,.mods > div:has(a:focus-visible) h4{color:var(--gc)}
+  .mods > div:hover h4::after,.mods > div:has(a:focus-visible) h4::after{opacity:1;transform:none}
+  @media (hover:none){.mods h4::after{opacity:1;transform:none;font-weight:400;font-size:.85em;color:var(--muted)}}
+  .mods code{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .mods p{margin:8px 0 0;font-size:15.5px;color:#3e4658}
+
+  /* Installation on charcoal */
+  .install{background:var(--charcoal);color:#fff;padding-block:136px;scroll-margin-top:0}
+  .install .label{color:#9aa3b5}
+  .install-head{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end}
+  .install-head > p{margin:0;font-size:19px;color:#b6bdcc}
+  .ways{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:72px}
+  .way{background:#2a3142;padding:40px;min-width:0}
+  .way.wide{grid-column:1 / -1}
+  .way-name{display:flex;gap:18px;align-items:baseline;margin:0;font-size:24px;font-weight:400;letter-spacing:-.01em}
+  .way-name small{font-family:var(--mono);font-size:15px}
+  .way:nth-child(1) small{color:var(--amber)}
+  .way:nth-child(2) small{color:var(--lilac)}
+  .way:nth-child(3) small{color:var(--sky)}
+  .way > p{margin:12px 0 0;color:#b6bdcc}
+  .steps{list-style:none;margin:28px 0 0;padding:0;counter-reset:s}
+  .steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;padding:14px 0;border-top:1px solid #3a4256}
+  .steps li::before{content:'0' counter(s);font-family:var(--mono);font-size:14px;color:#8d96aa;padding-top:2px}
+  .steps b{font-weight:600}
+  .effects{margin-top:28px;padding:28px 32px;background:#232a3a;border-left:3px solid var(--amber)}
+  .effects .eff-title{margin:0;font-size:13px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--amber)}
+  .effects ul{margin:16px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:18px 40px}
+  .effects li{color:#b6bdcc;font-size:15.5px}
+  .effects li > b:first-child{display:block;color:#fff;font-weight:600;margin-bottom:4px}
+  .effects li b{color:#e1e6ef;font-weight:600}
+  .effects > p:last-child{margin:22px 0 0;padding-top:18px;border-top:1px solid #3a4256;font-size:15px;color:#9aa3b5}
+  code.c{font-family:var(--mono);font-size:14px;background:#3a4256;padding:1px 6px}
+  .note{margin:20px 0 0;font-size:15px;color:#9aa3b5}
+  .term{margin:28px 0 0;background:#141925;padding:26px 28px;font-family:var(--mono);font-size:14px;line-height:1.8;color:#e1e6ef;overflow-x:auto;white-space:pre}
+  .term .pr{color:var(--sky);user-select:none}
+
+  /* Footer with coffee and the large wordmark */
+  .foot{background:var(--bg);padding-block:136px 40px;overflow:hidden}
+  .coffee{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:end;padding-bottom:96px;border-bottom:1px solid var(--line)}
+  .coffee p{margin:24px 0 0;font-size:19px;color:var(--muted);max-width:30rem}
+  .word{display:inline-block;padding-right:.04em;margin:56px 0 0;font-size:clamp(80px,19vw,300px);line-height:.8;letter-spacing:-.06em;font-weight:500;
+    background:linear-gradient(90deg,var(--amber) 0%,var(--lilac) 55%,var(--sky) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .foot-line{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:40px;font-size:14px;color:var(--muted)}
+  .foot-line a{text-decoration:none}
+  .foot-line a:hover{color:var(--ink)}
+
+  @media (max-width:1000px){
+    .duo-head,.grp-top,.install-head,.coffee{grid-template-columns:1fr;gap:24px}
+    .mods{grid-template-columns:1fr 1fr}
+    .ways{grid-template-columns:1fr}
+    .diagram{grid-template-columns:1fr;gap:0;padding:24px}
+    .link{width:2px;height:48px;margin:0 auto}
+    .link::after{right:-5px;top:auto;bottom:-2px;border:6px solid transparent;border-top:9px solid var(--amber-text);border-bottom:0}
+  }
+  @media (max-width:700px){
+    .wrap{padding-inline:16px}
+    .bar{height:72px}
+    .bar nav{gap:16px}
+    .bar nav .hide-s{display:none}
+    .hero h1{padding-top:56px}
+    .hero-sub{font-size:19px}
+    .facts{grid-template-columns:1fr;gap:16px;margin-top:64px}
+    .statement{padding-block:88px}
+    .duo,.groups,.install{padding-block:80px}
+    .diagram{margin-top:48px;padding:16px}
+    .panel{grid-template-columns:96px 1fr}
+    .grp{padding:28px 20px 32px}
+    .grp-top h3{font-size:28px}
+    .mods{grid-template-columns:1fr;gap:24px}
+    .ways{margin-top:48px}
+    .way{padding:24px}
+    .effects{padding:22px 20px}
+    .effects ul{grid-template-columns:1fr}
+    .term{padding:18px;font-size:13px}
+    .foot{padding-block:80px 32px}
+    .coffee{padding-bottom:56px}
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-wash" aria-hidden="true"></div>
+    <i class="beam b1" aria-hidden="true"></i><i class="beam b2" aria-hidden="true"></i><i class="beam b3" aria-hidden="true"></i><i class="beam b4" aria-hidden="true"></i>
+    <div class="wrap">
+      <div class="bar">
+        <a class="brand" href="./"><img src="assets/quince.png" alt="" width="32" height="32">Quince Project</a>
+        <nav>
+          <a class="hide-s" href="#modules">Modules</a>
+          <a class="hide-s" href="#install">Installation</a>
+          <a class="btn" href="https://github.com/quinceproject">GitHub</a>
+        </nav>
+      </div>
+
+      <h1>Quince Project</h1>
+      <p class="hero-sub">A theme and content engine for PrestaShop, extended with a suite of functional modules.</p>
+      <div class="cta">
+        <a class="btn" href="#install">How to install</a>
+        <a class="btn btn-line" href="https://github.com/quinceproject">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+
+      <div class="facts">
+        <div><b>PrestaShop 9.2</b>tested on 9.2.0</div>
+        <div><b>PHP 8.1 or newer</b>tested on 8.4</div>
+        <div><b>OSL-3.0 licence</b>open source, on GitHub</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+  <section class="statement">
+    <div class="wrap">
+      <p>→ Manage the <span class="k1">look<i class="chip" style="background:var(--amber)"></i></span>, the <span class="k2">content<i class="chip" style="background:var(--lilac)"></i></span> and the <span class="k3">features<i class="chip" style="background:var(--sky)"></i></span> of your shop in one panel, without touching the theme code.</p>
+    </div>
+  </section>
+
+  <section class="duo">
+    <div class="wrap">
+      <div class="duo-head">
+        <div>
+          <p class="label up">Look</p>
+          <h2>Quince Engine and theme</h2>
+        </div>
+        <p>Quince Engine and the Quince theme work together. Set colours, typography, layout and grid in the engine, and the theme shows them on every page of the shop.</p>
+      </div>
+
+      <div class="diagram" aria-hidden="true">
+        <div class="panel">
+          <div class="panel-side">
+            <div class="t">Quince Engine</div>
+            <span class="on">Design</span><span>Sections</span><span>Pages</span><span>Modules</span><span>System</span>
+          </div>
+          <div class="panel-main">
+            <p class="row-l">colours</p>
+            <div class="sw"><i style="background:var(--amber)"></i><i style="background:var(--charcoal)"></i><i style="background:var(--lilac)"></i><i style="background:var(--sky)"></i><i style="background:var(--bg);box-shadow:inset 0 0 0 1px var(--line)"></i></div>
+            <p class="row-l">typography</p>
+            <div class="type"><b>Aa</b><span>headings and text</span></div>
+            <p class="row-l">grid</p>
+            <div class="grid-l"><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="link"></div>
+        <div class="shop">
+          <div class="shop-bar"><i></i><i></i><i></i></div>
+          <div class="shop-body">
+            <div class="s-head"><b>Shop</b><span><i></i><i></i><i></i></span></div>
+            <div class="s-hero"><i></i></div>
+            <div class="s-grid"><div></div><div></div><div></div><div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="groups" id="modules">
+    <div class="wrap">
+      <div class="groups-head">
+        <div>
+          <p class="label up">Modules</p>
+          <h2>Look, content and shop features in one panel</h2>
+        </div>
+      </div>
+
+      <article class="grp g-amber" id="look">
+        <div class="grp-top">
+          <div><p class="grp-name up"><small>01 →</small>Look</p><h3>A look that matches your brand</h3></div>
+          <p>Choose colours, typography, layout and grid. Set up the top bar, header, menu and footer, then fine-tune every view of the shop.</p>
+        </div>
+        <div class="mods">
+          <div><h4><a href="https://github.com/quinceproject/quince_engine">Engine</a></h4><code>quince_engine</code><p>Set the colours, typography and layout of every view: from the top bar, header and menu to the product page, cart, checkout and customer account.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince">Theme</a></h4><code>themes/quince</code><p>Install a theme with templates for every page of the shop, from the home page to checkout and the customer account.</p></div>
+        </div>
+      </article>
+
+      <article class="grp g-lilac" id="content">
+        <div class="grp-top">
+          <div><p class="grp-name up"><small>02 →</small>Content</p><h3>Content you manage yourself</h3></div>
+          <p>Manage home page slides, product sections, content blocks, footer links and blog posts. Make changes yourself, without touching the theme code.</p>
+        </div>
+        <div class="mods">
+          <div><h4><a href="https://github.com/quinceproject/quince_slider">Slider</a></h4><code>quince_slider</code><p>Show slides with an image, text and a button on the home page.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_product_section">Product sections</a></h4><code>quince_product_section</code><p>Add rows of products under product lists, such as best sellers, new arrivals or most searched, separately for each type of page.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_block">Blocks</a></h4><code>quince_block</code><p>Create HTML blocks with display rules, a schedule and A/B tests, and place them in hooks of your own on the home page, in product lists, on the product page and in the cart.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_linkblocks">Link blocks</a></h4><code>quince_linkblocks</code><p>Build blocks of links in the footer to categories, content pages or addresses of your own, in every language of the shop.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_blog">Blog</a></h4><code>quince_blog</code><p>Run a multilingual blog with categories, tags and SEO fields, and show post teasers in the shop.</p></div>
+        </div>
+      </article>
+
+      <article class="grp g-sky" id="sales">
+        <div class="grp-top">
+          <div><p class="grp-name up"><small>03 →</small>Sales</p><h3>Help with choosing and buying</h3></div>
+          <p>Help customers find the right product, get to know it and place the order.</p>
+        </div>
+        <div class="mods">
+          <div><h4><a href="https://github.com/quinceproject/quince_search">Search</a></h4><code>quince_search</code><p>Suggest products as customers type, and let them narrow the search to the name, reference, category, brand or a product feature.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_search_score">Search Score</a></h4><code>quince_search_score</code><p>See which phrases customers search for and which products they pick from the results, and show the most picked ones in a product section of their own.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_dictionaries">Dictionaries</a></h4><code>quince_dictionaries</code><p>Organise in dictionaries the data that does not belong to a single product, with levels and fields of your own, and show the entries assigned to a product in tables on its page.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_feature_rank">Feature rank</a></h4><code>quince_feature_rank</code><p>Show first on the product page the features filled in for most products of the category, and skip the ones with the same value everywhere in it.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_qa">Questions &amp; answers</a></h4><code>quince_qa</code><p>Let customers ask questions about a product and publish the answers on its page.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_crossselling">Cross-selling</a></h4><code>quince_crossselling</code><p>Suggest products to add under the product, in the cart and after the order, picked from what customers bought together.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_offers">Offers</a></h4><code>quince_offers</code><p>Let customers download a PDF offer for the products they choose, and see in the back office who downloaded which offer.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_contacts">Contacts</a></h4><code>quince_contacts</code><p>Show the specialist for the product's category on the product page, with a photo and phone number, and let customers write to them.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_engine">Company checkout</a></h4><code>in quince_engine</code><p>Fill in company details at checkout from the EU VIES register by VAT number, and check that number before the address is saved.</p></div>
+        </div>
+      </article>
+
+      <article class="grp g-amber" id="compliance">
+        <div class="grp-top">
+          <div><p class="grp-name up"><small>04 →</small>Compliance</p><h3>Compliance with regulations</h3></div>
+          <p>Meet the EU regulations that apply to an online shop: visitor consent, product safety, the price before a discount and withdrawal from the contract.</p>
+        </div>
+        <div class="mods">
+          <div><h4><a href="https://github.com/quinceproject/quince_cmp">CMP</a></h4><code>quince_cmp</code><p>Show a cookie banner, hold services back until consent, send Google Consent Mode signals and record every decision together with the consent text the visitor saw.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_gpsr">GPSR</a></h4><code>quince_gpsr</code><p>Keep a register of manufacturers and responsible persons, assign them to brands and products, and show them on the product page with the safety information.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_omnibus">Price history</a></h4><code>quince_omnibus</code><p>Record every price change and show next to the price the lowest price from the period before a discount, on the product page and in product lists.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_withdrawal">Withdrawal</a></h4><code>quince_withdrawal</code><p>Give customers a withdrawal form, send them a confirmation with a PDF, and keep a register of statements with the withdrawal deadline worked out.</p></div>
+        </div>
+      </article>
+
+      <article class="grp g-lilac" id="visibility">
+        <div class="grp-top">
+          <div><p class="grp-name up"><small>05 →</small>Visibility</p><h3>Visibility and security</h3></div>
+          <p>Decide which search engines and AI bots can access the shop, and check which of them visit it. Fill in brand and schema.org data, and make the shop's content available to AI models in an llms.txt file. Protect forms from spam with reCAPTCHA.</p>
+        </div>
+        <div class="mods">
+          <div><h4><a href="https://github.com/quinceproject/quince_robots">Robots &amp; AI</a></h4><code>quince_robots</code><p>Decide which bots and AI agents may enter the shop, write those decisions to robots.txt, and check which of them actually come.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_engine">Brand &amp; Schema</a></h4><code>in quince_engine</code><p>Fill in organisation data for schema.org and default meta tags for pages without their own, and make the shop's content available in an llms.txt file.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_recaptcha">reCAPTCHA</a></h4><code>quince_recaptcha</code><p>Reject submissions from shop forms that Google reCAPTCHA v3 scores below the threshold you set, with no puzzles for customers.</p></div>
+        </div>
+      </article>
+
+      <article class="grp g-sky" id="integrations">
+        <div class="grp-top">
+          <div><p class="grp-name up"><small>06 →</small>Integrations</p><h3>Integrations with external systems</h3></div>
+          <p>Pass shop events and data through an API to external systems, such as a CRM or automation tools.</p>
+        </div>
+        <div class="mods">
+          <div><h4><a href="https://github.com/quinceproject/quince_events">Events</a></h4><code>quince_events</code><p>Record events reported by Quince modules, such as a question to a specialist or a request for an offer, and send them to an external system as signed messages, retrying failed attempts.</p></div>
+          <div><h4><a href="https://github.com/quinceproject/quince_api">API</a></h4><code>quince_api</code><p>Give external systems access to merchandise returns and their items through the PrestaShop Admin API, and let them change their status just as in the back office.</p></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="install" id="install">
+    <div class="wrap">
+      <div class="install-head">
+        <div>
+          <p class="label up">Installation</p>
+          <h2>Ways to install</h2>
+        </div>
+        <p>Pick one of three ways. In each, install Quince Engine first: most modules require it, and PrestaShop will not install them without the engine.</p>
+      </div>
+
+      <div class="ways">
+        <article class="way">
+          <p class="way-name up"><small>01 →</small>Release ZIPs</p>
+          <p>Upload the release packages through the PrestaShop back office or by FTP. No command line or Composer needed.</p>
+          <ol class="steps">
+            <li><span>Download <code class="c">quince_engine.zip</code> from the <b>Releases</b> page of the repository.</span></li>
+            <li><span>In the back office, open <b>Modules → Module Manager → Upload a module</b> and choose the package. You can also unpack it and upload the folder to <code class="c">modules/</code> by FTP.</span></li>
+            <li><span>Install the theme and the other modules the same way.</span></li>
+          </ol>
+          <p class="note">Do not download the code with the <b>Code → Download ZIP</b> button. That archive lacks the <code class="c">vendor/</code> folder, and the module will not work from it.</p>
+        </article>
+
+        <article class="way">
+          <p class="way-name up"><small>02 →</small>Engine back office</p>
+          <p>Upload only the engine. Install and update the theme and the other modules from its back office.</p>
+          <ol class="steps">
+            <li><span>Install Quince Engine from its release ZIP.</span></li>
+            <li><span>Open <b>Quince project → Quince modules</b>.</span></li>
+            <li><span>Click <b>Install</b> next to a module you do not have yet, or <b>Update</b> next to a module with a newer release.</span></li>
+          </ol>
+          <p class="note">Make sure the shop can reach github.com and can write to the <code class="c">modules/</code> and <code class="c">themes/</code> folders. The engine checks every package against the SHA-256 from the release list.</p>
+        </article>
+
+        <article class="way wide">
+          <p class="way-name up"><small>03 →</small>Composer</p>
+          <p>Install everything with one command: the engine, the theme and every module, enabled in the shop right away. Run it in the shop's root directory as the user the shop runs as, not as root.</p>
+<pre class="term"><span class="pr">$ </span>composer create-project quinceproject/setup quince --repository=https://quinceproject.github.io</pre>
+          <div class="effects">
+            <p class="eff-title">What changes in the shop</p>
+            <ul>
+              <li><b>Every Quince module is installed and enabled in every shop.</b> Each adds its settings screen, database tables and hooks, as when installed from the Module Manager for all shops.</li>
+              <li><b>The Quince theme becomes the active theme in every shop.</b> On the first install only. The previous theme stays in <code class="c">themes/</code> and you can switch back under <b>Design → Theme &amp; Logo</b>; updates leave the active theme as it is.</li>
+              <li><b>Quince modules the shop already has are updated</b> to the latest releases, with their own upgrade scripts. Their settings stay.</li>
+              <li><b>Nothing is removed.</b> Modules and themes outside Quince stay as they are.</li>
+            </ul>
+            <p>The command creates a <code class="c">quince/</code> folder next to the shop, with a <code class="c">composer.json</code>. To pick modules one by one, use the release ZIPs or the engine back office.</p>
+          </div>
+          <p class="note">Updating: <code class="c">composer update</code> in the <code class="c">quince/</code> folder downloads new releases and updates the modules in the shop right away. Details in the <a href="https://github.com/quinceproject/setup">setup repository</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="coffee">
+        <div>
+          <p class="label up">Support</p>
+          <h2>Buy me a coffee</h2>
+          <p>Use Quince modules for free. If they are useful to you, support their development and buy me a coffee.</p>
+        </div>
+        <a class="btn" href="https://buymeacoffee.com/marcingajewski">buymeacoffee.com/marcingajewski</a>
+      </div>
+      <p class="word" aria-hidden="true">Quince</p>
+      <div class="foot-line">
+        <span>© 2026 Marcin Gajewski · OSL-3.0</span>
+        <a href="https://github.com/quinceproject">github.com/quinceproject</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
