@@ -43,7 +43,8 @@ $composer = [];
 foreach (api("/orgs/{$org}/repos?per_page=100&type=public", $token) as $repo) {
     $name = (string) $repo['name'];
 
-    if ($name === "{$org}.github.io" || !empty($repo['archived'])) {
+    // "setup" is the Composer project that installs everything, not a module.
+    if ($name === "{$org}.github.io" || $name === 'setup' || !empty($repo['archived'])) {
         continue;
     }
 
@@ -111,6 +112,8 @@ file_put_contents($manifestFile, json_encode($manifest, JSON_PRETTY_PRINT | JSON
 echo 'Modules: ' . count($modules) . ', themes: ' . count($themes) . "\n";
 
 if ($packagesFile !== null) {
+    $composer += allInOne($org, $composer);
+    $composer += setupVersions($org, $token);
     ksort($composer);
     file_put_contents($packagesFile, json_encode(['packages' => $composer], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "\n");
     echo 'Composer packages: ' . count($composer) . "\n";
@@ -159,6 +162,85 @@ function composerVersions(string $org, string $repo, bool $isTheme, string $lice
     }
 
     return $versions === [] ? [] : [$package => $versions];
+}
+
+/**
+ * "quinceproject/quince": one package that requires the engine, the theme and every
+ * module, so `composer require quinceproject/quince` or the setup project brings in
+ * everything without the user listing package names.
+ *
+ * Its version is the date of the newest release among them, so it changes whenever
+ * any Quince package gets a new release.
+ *
+ * @param array<string,array<string,array<string,mixed>>> $packages
+ *
+ * @return array<string,array<string,array<string,mixed>>>
+ */
+function allInOne(string $org, array $packages): array
+{
+    $require = [];
+    $newest = '';
+
+    foreach ($packages as $name => $versions) {
+        $require[$name] = '*';
+
+        foreach ($versions as $version) {
+            $newest = max($newest, (string) ($version['time'] ?? ''));
+        }
+    }
+
+    if ($require === []) {
+        return [];
+    }
+
+    ksort($require);
+    $version = $newest !== '' ? gmdate('Y.m.d', (int) strtotime($newest)) : '1.0.0';
+
+    return ["{$org}/quince" => [$version => [
+        'name' => "{$org}/quince",
+        'version' => $version,
+        'type' => 'metapackage',
+        'description' => 'Quince Engine, the Quince theme and every Quince module',
+        'license' => ['OSL-3.0'],
+        'homepage' => "https://{$org}.github.io",
+        'require' => $require,
+        'time' => $newest,
+    ]]];
+}
+
+/**
+ * Every release of the "setup" repository as versions of "quinceproject/setup", the
+ * Composer project behind `composer create-project quinceproject/setup quince`. The
+ * project has no build step, so the tag's source archive is the package.
+ *
+ * @return array<string,array<string,array<string,mixed>>>
+ */
+function setupVersions(string $org, string $token): array
+{
+    $releases = api("/repos/{$org}/setup/releases?per_page=100", $token, true);
+    $versions = [];
+
+    foreach ((array) $releases as $release) {
+        if (!empty($release['draft']) || !empty($release['prerelease'])) {
+            continue;
+        }
+
+        $tag = (string) $release['tag_name'];
+        $version = ltrim($tag, 'vV');
+        $versions[$version] = [
+            'name' => "{$org}/setup",
+            'version' => $version,
+            'type' => 'project',
+            'description' => 'Installs Quince Engine, the Quince theme and every Quince module in a PrestaShop shop with one command',
+            'license' => ['OSL-3.0'],
+            'homepage' => "https://github.com/{$org}/setup",
+            'require' => ['php' => '>=8.1', "{$org}/quince" => '*'],
+            'dist' => ['type' => 'zip', 'url' => "https://github.com/{$org}/setup/archive/refs/tags/{$tag}.zip"],
+            'time' => (string) ($release['published_at'] ?? ''),
+        ];
+    }
+
+    return $versions === [] ? [] : ["{$org}/setup" => $versions];
 }
 
 /** @return array<mixed>|null */

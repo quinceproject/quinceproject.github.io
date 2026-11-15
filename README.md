@@ -80,7 +80,23 @@ package, `quinceproject/<name>` (`quince_search` becomes `quinceproject/search`,
 theme is `quinceproject/theme`). The package is the release ZIP, the same one the back
 office installs, with the module's own `vendor/` inside.
 
-A PrestaShop shop ships without a `composer.json` of its own, and running
+Two more packages come from here, not from module repositories:
+
+- `quinceproject/quince` requires the engine, the theme and every module. Its version
+  is the date of the newest release among them.
+- `quinceproject/setup` is the Composer project from the
+  [setup repository](https://github.com/quinceproject/setup). It installs everything
+  with one command, in the shop's root directory:
+
+  ```sh
+  composer create-project quinceproject/setup quince --repository=https://quinceproject.github.io
+  ```
+
+  It downloads `quinceproject/quince`, then runs the shop's console: Quince Engine
+  first, then the engine's `quince:install`, which installs every other module and, on
+  the first run, makes Quince the active theme in every shop.
+
+To pick packages one by one instead: a PrestaShop shop ships without a `composer.json` of its own, and running
 `composer require` in its root would replace the shop's `vendor/` folder. Quince
 packages are therefore installed from a separate folder next to the shop, and
 [composer/installers](https://github.com/composer/installers) puts each one in
