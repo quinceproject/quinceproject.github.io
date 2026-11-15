@@ -2213,6 +2213,13 @@
             "sha256": "444964d6eeb3cb1bfe5b34f1f9aea617db6a5f39d5d70d602871fb7c0eb07fe7",
             "notes": "https://github.com/quinceproject/quince_api/releases/tag/v0.1.3"
         },
+        "quince_block": {
+            "repository": "quinceproject/quince_block",
+            "version": "0.1.0",
+            "package": "https://github.com/quinceproject/quince_block/releases/download/v0.1.0/quince_block.zip",
+            "sha256": "37f75396ddc60267b49496bc05ee687787959075ed9fec7cd331d2dd8a15d5b9",
+            "notes": "https://github.com/quinceproject/quince_block/releases/tag/v0.1.0"
+        },
         "quince_blog": {
             "repository": "quinceproject/quince_blog",
             "version": "0.4.4",
@@ -2250,10 +2257,10 @@
         },
         "quince_engine": {
             "repository": "quinceproject/quince_engine",
-            "version": "0.7.1",
-            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.7.1/quince_engine.zip",
-            "sha256": "3ef0acd0b92d18ade60908a708b1907b79c9b25ea78e0bb4a60d483fb44a9050",
-            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.7.1"
+            "version": "0.7.2",
+            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.7.2/quince_engine.zip",
+            "sha256": "86c7aa9a04055198cc22263a99f50f4c709cdda08919320cc7f036205fd05a94",
+            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.7.2"
         },
         "quince_events": {
             "repository": "quinceproject/quince_events",
@@ -2364,10 +2371,10 @@
     "themes": {
         "quince": {
             "repository": "quinceproject/quince",
-            "version": "0.1.2",
-            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.2/quince.zip",
-            "sha256": "a12956570df87cf91419434ebdfc90ebcca4f638244ef9d66e0a4cc06e11f297",
-            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.2"
+            "version": "0.1.3",
+            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.3/quince.zip",
+            "sha256": "197cfa29edc7035a058e169bdbba7b3aaa5d811fcda93a18092bad0b44a7d4cd",
+            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.3"
         }
     }
 }
