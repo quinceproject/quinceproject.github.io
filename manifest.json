@@ -2268,10 +2268,10 @@
         },
         "quince_engine": {
             "repository": "quinceproject/quince_engine",
-            "version": "0.10.0",
-            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.0/quince_engine.zip",
-            "sha256": "7bc47c0717e66671f6131aeacd6c59cd43c28144042b890ff4383c8767449ace",
-            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.10.0"
+            "version": "0.10.1",
+            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.1/quince_engine.zip",
+            "sha256": "72eb2202c60cbd183715afc84b8e3f2f15ef412686e767887a794b83070e2a3c",
+            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.10.1"
         },
         "quince_events": {
             "repository": "quinceproject/quince_events",
