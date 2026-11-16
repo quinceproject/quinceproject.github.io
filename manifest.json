@@ -2382,10 +2382,10 @@
     "themes": {
         "quince": {
             "repository": "quinceproject/quince",
-            "version": "0.1.9",
-            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.9/quince.zip",
-            "sha256": "485ad67bec316adf991329aac9ecec10ed31d0a618b0b6c5cc32fb249fec5293",
-            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.9"
+            "version": "0.1.10",
+            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.10/quince.zip",
+            "sha256": "96d862e939d6d7e014899f4055d22765ffe34b24a6f339a1bfdc0cc0130c6954",
+            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.10"
         }
     }
 }

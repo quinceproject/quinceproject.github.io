@@ -2288,7 +2288,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-16T21:15:44Z"
+                "time": "2026-11-16T21:34:09Z"
             }
         },
         "quinceproject/recaptcha": {
@@ -2881,6 +2881,24 @@
             }
         },
         "quinceproject/theme": {
+            "0.1.10": {
+                "name": "quinceproject/theme",
+                "version": "0.1.10",
+                "type": "prestashop-theme",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince/releases/download/v0.1.10/quince.zip"
+                },
+                "time": "2026-11-16T21:34:09Z"
+            },
             "0.1.9": {
                 "name": "quinceproject/theme",
                 "version": "0.1.9",
