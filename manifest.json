@@ -1,6 +1,6 @@
 {
     "robots": {
-        "updated": "2026-11-12",
+        "updated": "2026-11-16",
         "source": "https://github.com/ai-robots-txt/ai.robots.txt",
         "bots": {
             "addsearchbot": {
@@ -1125,6 +1125,17 @@
                 "respects": "unclear",
                 "default_policy": "allow"
             },
+            "hatchfeed": {
+                "token": "HatchFeed",
+                "label": "HatchFeed",
+                "vendor": "Meta",
+                "category": "other",
+                "description": "HatchFeed is the link-preview fetcher of Meta's Muse AI agent; https://agent.meta.ai in its user agent redirects to muse.ai. It fetches a page and its Open Graph images when Muse needs them for a user.",
+                "docs_url": "https://agent.meta.ai",
+                "verify_host": "",
+                "respects": "no",
+                "default_policy": "allow"
+            },
             "henkbot": {
                 "token": "HenkBot",
                 "label": "HenkBot",
@@ -2229,10 +2240,10 @@
         },
         "quince_cmp": {
             "repository": "quinceproject/quince_cmp",
-            "version": "0.4.4",
-            "package": "https://github.com/quinceproject/quince_cmp/releases/download/v0.4.4/quince_cmp.zip",
-            "sha256": "46e8b04eafe238f95f731d2ec835a01f86f60516509050c49c5a80313ce075bc",
-            "notes": "https://github.com/quinceproject/quince_cmp/releases/tag/v0.4.4"
+            "version": "0.4.5",
+            "package": "https://github.com/quinceproject/quince_cmp/releases/download/v0.4.5/quince_cmp.zip",
+            "sha256": "d6cfa0f847829674df347edfd85d1a206173848a35f4d8b7d5f2a4b5496f5c95",
+            "notes": "https://github.com/quinceproject/quince_cmp/releases/tag/v0.4.5"
         },
         "quince_contacts": {
             "repository": "quinceproject/quince_contacts",
@@ -2257,10 +2268,10 @@
         },
         "quince_engine": {
             "repository": "quinceproject/quince_engine",
-            "version": "0.9.0",
-            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.9.0/quince_engine.zip",
-            "sha256": "bc21f720b85f06cc90fa20eb7ad02c2a3592d1a42d0e1a8abfb9094810cced97",
-            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.9.0"
+            "version": "0.10.0",
+            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.0/quince_engine.zip",
+            "sha256": "7bc47c0717e66671f6131aeacd6c59cd43c28144042b890ff4383c8767449ace",
+            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.10.0"
         },
         "quince_events": {
             "repository": "quinceproject/quince_events",
@@ -2371,10 +2382,10 @@
     "themes": {
         "quince": {
             "repository": "quinceproject/quince",
-            "version": "0.1.6",
-            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.6/quince.zip",
-            "sha256": "64fb080862256b6c5b8cc3cdce758c242a6b813efc20ff5274d92d37e9ff6395",
-            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.6"
+            "version": "0.1.7",
+            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.7/quince.zip",
+            "sha256": "20af513c17f8c0ca48d2a8f8a2e861f39bd0e71c2c5452910035428931412edf",
+            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.7"
         }
     }
 }
