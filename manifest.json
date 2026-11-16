@@ -2310,10 +2310,10 @@
         },
         "quince_offers": {
             "repository": "quinceproject/quince_offers",
-            "version": "0.4.9",
-            "package": "https://github.com/quinceproject/quince_offers/releases/download/v0.4.9/quince_offers.zip",
-            "sha256": "62c5bed29b81c78f82f9072eefd1f6909b7a3609a6fd2bba214e7446d180ae69",
-            "notes": "https://github.com/quinceproject/quince_offers/releases/tag/v0.4.9"
+            "version": "0.4.10",
+            "package": "https://github.com/quinceproject/quince_offers/releases/download/v0.4.10/quince_offers.zip",
+            "sha256": "b3ecded091fa55dafdaafdcca70972b0e8c99bec7589cc604984c0709a1d7804",
+            "notes": "https://github.com/quinceproject/quince_offers/releases/tag/v0.4.10"
         },
         "quince_omnibus": {
             "repository": "quinceproject/quince_omnibus",

@@ -1683,6 +1683,26 @@
             }
         },
         "quinceproject/offers": {
+            "0.4.10": {
+                "name": "quinceproject/offers",
+                "version": "0.4.10",
+                "type": "prestashop-module",
+                "license": [
+                    "GPL-2.0"
+                ],
+                "homepage": "https://github.com/quinceproject/quince_offers",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_offers"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_offers/releases/download/v0.4.10/quince_offers.zip"
+                },
+                "time": "2026-11-16T19:08:09Z"
+            },
             "0.4.9": {
                 "name": "quinceproject/offers",
                 "version": "0.4.9",
@@ -2232,7 +2252,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-16T15:36:46Z"
+                "time": "2026-11-16T19:08:09Z"
             }
         },
         "quinceproject/recaptcha": {
