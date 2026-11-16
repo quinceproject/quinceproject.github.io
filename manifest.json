@@ -2247,10 +2247,10 @@
         },
         "quince_contacts": {
             "repository": "quinceproject/quince_contacts",
-            "version": "0.4.8",
-            "package": "https://github.com/quinceproject/quince_contacts/releases/download/v0.4.8/quince_contacts.zip",
-            "sha256": "ee80e19577edbf7adece424f1cbd3b62ac352804085d8ba27e99b37ce14290aa",
-            "notes": "https://github.com/quinceproject/quince_contacts/releases/tag/v0.4.8"
+            "version": "0.5.0",
+            "package": "https://github.com/quinceproject/quince_contacts/releases/download/v0.5.0/quince_contacts.zip",
+            "sha256": "2da9161e6ce1c54204b288380b6ae07ec4bd6c559119a0a0333e7f4b4717acd7",
+            "notes": "https://github.com/quinceproject/quince_contacts/releases/tag/v0.5.0"
         },
         "quince_crossselling": {
             "repository": "quinceproject/quince_crossselling",
@@ -2268,10 +2268,10 @@
         },
         "quince_engine": {
             "repository": "quinceproject/quince_engine",
-            "version": "0.10.1",
-            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.1/quince_engine.zip",
-            "sha256": "72eb2202c60cbd183715afc84b8e3f2f15ef412686e767887a794b83070e2a3c",
-            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.10.1"
+            "version": "0.10.2",
+            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.2/quince_engine.zip",
+            "sha256": "7e8e8c65e764af8bd9024881712c42e2e022136d62f725a70aa0a043f33db771",
+            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.10.2"
         },
         "quince_events": {
             "repository": "quinceproject/quince_events",
@@ -2382,10 +2382,10 @@
     "themes": {
         "quince": {
             "repository": "quinceproject/quince",
-            "version": "0.1.8",
-            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.8/quince.zip",
-            "sha256": "e335c0a50d0d7c61583751abe47c32ee10fa9c03bef0707018693235d10d9d01",
-            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.8"
+            "version": "0.1.9",
+            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.9/quince.zip",
+            "sha256": "485ad67bec316adf991329aac9ecec10ed31d0a618b0b6c5cc32fb249fec5293",
+            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.9"
         }
     }
 }
