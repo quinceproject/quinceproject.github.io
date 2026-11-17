@@ -861,6 +861,24 @@
             }
         },
         "quinceproject/engine": {
+            "0.10.3": {
+                "name": "quinceproject/engine",
+                "version": "0.10.3",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_engine",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_engine"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.3/quince_engine.zip"
+                },
+                "time": "2026-11-17T11:03:07Z"
+            },
             "0.10.2": {
                 "name": "quinceproject/engine",
                 "version": "0.10.2",
@@ -2253,9 +2271,9 @@
             }
         },
         "quinceproject/quince": {
-            "2026.11.16": {
+            "2026.11.17": {
                 "name": "quinceproject/quince",
-                "version": "2026.11.16",
+                "version": "2026.11.17",
                 "type": "metapackage",
                 "description": "Quince Engine, the Quince theme and every Quince module",
                 "license": [
@@ -2288,7 +2306,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-16T21:34:09Z"
+                "time": "2026-11-17T11:03:20Z"
             }
         },
         "quinceproject/recaptcha": {
@@ -2881,6 +2899,24 @@
             }
         },
         "quinceproject/theme": {
+            "0.1.11": {
+                "name": "quinceproject/theme",
+                "version": "0.1.11",
+                "type": "prestashop-theme",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince/releases/download/v0.1.11/quince.zip"
+                },
+                "time": "2026-11-17T11:03:20Z"
+            },
             "0.1.10": {
                 "name": "quinceproject/theme",
                 "version": "0.1.10",
