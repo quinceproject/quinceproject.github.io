@@ -861,6 +861,24 @@
             }
         },
         "quinceproject/engine": {
+            "0.10.4": {
+                "name": "quinceproject/engine",
+                "version": "0.10.4",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_engine",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_engine"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.4/quince_engine.zip"
+                },
+                "time": "2026-11-17T15:14:28Z"
+            },
             "0.10.3": {
                 "name": "quinceproject/engine",
                 "version": "0.10.3",
@@ -2306,7 +2324,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-17T11:03:20Z"
+                "time": "2026-11-17T15:14:34Z"
             }
         },
         "quinceproject/recaptcha": {
@@ -2899,6 +2917,24 @@
             }
         },
         "quinceproject/theme": {
+            "0.1.12": {
+                "name": "quinceproject/theme",
+                "version": "0.1.12",
+                "type": "prestashop-theme",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince/releases/download/v0.1.12/quince.zip"
+                },
+                "time": "2026-11-17T15:14:34Z"
+            },
             "0.1.11": {
                 "name": "quinceproject/theme",
                 "version": "0.1.11",
