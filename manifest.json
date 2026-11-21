@@ -2261,10 +2261,10 @@
         },
         "quince_dictionaries": {
             "repository": "quinceproject/quince_dictionaries",
-            "version": "0.3.1",
-            "package": "https://github.com/quinceproject/quince_dictionaries/releases/download/v0.3.1/quince_dictionaries.zip",
-            "sha256": "3838dd40d41d58d37a375a20aaac04f92c927655f353059955a263b3b499c849",
-            "notes": "https://github.com/quinceproject/quince_dictionaries/releases/tag/v0.3.1"
+            "version": "0.3.2",
+            "package": "https://github.com/quinceproject/quince_dictionaries/releases/download/v0.3.2/quince_dictionaries.zip",
+            "sha256": "c090f8ebd69f158c1109cbb4f41f893572b092aadef418cf1ddd81af749fe17d",
+            "notes": "https://github.com/quinceproject/quince_dictionaries/releases/tag/v0.3.2"
         },
         "quince_engine": {
             "repository": "quinceproject/quince_engine",
@@ -2382,10 +2382,10 @@
     "themes": {
         "quince": {
             "repository": "quinceproject/quince",
-            "version": "0.1.12",
-            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.12/quince.zip",
-            "sha256": "7f5ab00bdfe650d8572ea04393cd526937f43bc795130cdcbe4b66591b9446d9",
-            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.12"
+            "version": "0.1.13",
+            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.13/quince.zip",
+            "sha256": "f6fdd2180d2ba182a058a12b2c6e2fefd2549efdd9791a3924ebfce03e298511",
+            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.13"
         }
     }
 }

@@ -769,6 +769,24 @@
             }
         },
         "quinceproject/dictionaries": {
+            "0.3.2": {
+                "name": "quinceproject/dictionaries",
+                "version": "0.3.2",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_dictionaries",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_dictionaries"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_dictionaries/releases/download/v0.3.2/quince_dictionaries.zip"
+                },
+                "time": "2026-11-21T20:37:20Z"
+            },
             "0.3.1": {
                 "name": "quinceproject/dictionaries",
                 "version": "0.3.1",
@@ -2378,7 +2396,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-21T20:16:03Z"
+                "time": "2026-11-21T20:37:24Z"
             }
         },
         "quinceproject/recaptcha": {
@@ -2971,6 +2989,24 @@
             }
         },
         "quinceproject/theme": {
+            "0.1.13": {
+                "name": "quinceproject/theme",
+                "version": "0.1.13",
+                "type": "prestashop-theme",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince/releases/download/v0.1.13/quince.zip"
+                },
+                "time": "2026-11-21T20:37:24Z"
+            },
             "0.1.12": {
                 "name": "quinceproject/theme",
                 "version": "0.1.12",
