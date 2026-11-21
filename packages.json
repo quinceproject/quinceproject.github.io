@@ -769,6 +769,24 @@
             }
         },
         "quinceproject/dictionaries": {
+            "0.3.1": {
+                "name": "quinceproject/dictionaries",
+                "version": "0.3.1",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_dictionaries",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_dictionaries"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_dictionaries/releases/download/v0.3.1/quince_dictionaries.zip"
+                },
+                "time": "2026-11-21T20:16:03Z"
+            },
             "0.3.0": {
                 "name": "quinceproject/dictionaries",
                 "version": "0.3.0",
@@ -2325,9 +2343,9 @@
             }
         },
         "quinceproject/quince": {
-            "2026.11.17": {
+            "2026.11.21": {
                 "name": "quinceproject/quince",
-                "version": "2026.11.17",
+                "version": "2026.11.21",
                 "type": "metapackage",
                 "description": "Quince Engine, the Quince theme and every Quince module",
                 "license": [
@@ -2360,7 +2378,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-17T16:14:53Z"
+                "time": "2026-11-21T20:16:03Z"
             }
         },
         "quinceproject/recaptcha": {

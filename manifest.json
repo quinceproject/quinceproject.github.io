@@ -2261,10 +2261,10 @@
         },
         "quince_dictionaries": {
             "repository": "quinceproject/quince_dictionaries",
-            "version": "0.3.0",
-            "package": "https://github.com/quinceproject/quince_dictionaries/releases/download/v0.3.0/quince_dictionaries.zip",
-            "sha256": "3ca17e1cb16b7167560c62294851bf76e8a7bc0fcbc41270f8cd3d963e2a83e2",
-            "notes": "https://github.com/quinceproject/quince_dictionaries/releases/tag/v0.3.0"
+            "version": "0.3.1",
+            "package": "https://github.com/quinceproject/quince_dictionaries/releases/download/v0.3.1/quince_dictionaries.zip",
+            "sha256": "3838dd40d41d58d37a375a20aaac04f92c927655f353059955a263b3b499c849",
+            "notes": "https://github.com/quinceproject/quince_dictionaries/releases/tag/v0.3.1"
         },
         "quince_engine": {
             "repository": "quinceproject/quince_engine",
