@@ -2393,10 +2393,10 @@
     "themes": {
         "quince": {
             "repository": "quinceproject/quince",
-            "version": "0.1.15",
-            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.15/quince.zip",
-            "sha256": "f0f1aed45a10589ab430b20f65ee9f56d032d384b98a7faf6c19aa292a7b780c",
-            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.15"
+            "version": "0.1.16",
+            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.16/quince.zip",
+            "sha256": "2709d5d6950dd153c2bf846276ef711f42786fc1c9b0064c5b029eb5063805b2",
+            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.16"
         }
     }
 }
