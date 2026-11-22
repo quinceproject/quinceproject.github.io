@@ -1,6 +1,6 @@
 {
     "robots": {
-        "updated": "2026-11-16",
+        "updated": "2026-11-22",
         "source": "https://github.com/ai-robots-txt/ai.robots.txt",
         "bots": {
             "addsearchbot": {
@@ -914,6 +914,17 @@
                 "docs_url": "",
                 "verify_host": "",
                 "respects": "unclear",
+                "default_policy": "allow"
+            },
+            "generalretrievalbot": {
+                "token": "GeneralRetrievalBot",
+                "label": "GeneralRetrievalBot",
+                "vendor": "AxionOrbital Space Inc.",
+                "category": "other",
+                "description": "GeneralRetrievalBot collects public web pages for General Retrieval, a search service for AI agents.",
+                "docs_url": "",
+                "verify_host": "",
+                "respects": "yes",
                 "default_policy": "allow"
             },
             "google-agent": {
@@ -2268,10 +2279,10 @@
         },
         "quince_engine": {
             "repository": "quinceproject/quince_engine",
-            "version": "0.10.6",
-            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.6/quince_engine.zip",
-            "sha256": "b840affc1d36e60007fc0f43f849cbc1c3846eaae0dc2279c25859d9d993819d",
-            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.10.6"
+            "version": "0.10.7",
+            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.7/quince_engine.zip",
+            "sha256": "262470a2773a2b723fd19f2c7efff40017af818fced4f0471ed7278e9006b961",
+            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.10.7"
         },
         "quince_events": {
             "repository": "quinceproject/quince_events",
@@ -2382,10 +2393,10 @@
     "themes": {
         "quince": {
             "repository": "quinceproject/quince",
-            "version": "0.1.13",
-            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.13/quince.zip",
-            "sha256": "f6fdd2180d2ba182a058a12b2c6e2fefd2549efdd9791a3924ebfce03e298511",
-            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.13"
+            "version": "0.1.14",
+            "package": "https://github.com/quinceproject/quince/releases/download/v0.1.14/quince.zip",
+            "sha256": "d984386014ef2caac28876f85d22349822b765571de0f2b7db143f0b94444bd3",
+            "notes": "https://github.com/quinceproject/quince/releases/tag/v0.1.14"
         }
     }
 }
