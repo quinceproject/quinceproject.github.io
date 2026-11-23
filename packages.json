@@ -2121,6 +2121,24 @@
             }
         },
         "quinceproject/omnibus": {
+            "0.1.6": {
+                "name": "quinceproject/omnibus",
+                "version": "0.1.6",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_omnibus",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_omnibus"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_omnibus/releases/download/v0.1.6/quince_omnibus.zip"
+                },
+                "time": "2026-11-23T15:46:01Z"
+            },
             "0.1.5": {
                 "name": "quinceproject/omnibus",
                 "version": "0.1.5",
@@ -2468,7 +2486,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-23T12:42:27Z"
+                "time": "2026-11-23T15:46:01Z"
             }
         },
         "quinceproject/recaptcha": {
