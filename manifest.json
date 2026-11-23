@@ -2293,10 +2293,10 @@
         },
         "quince_feature_rank": {
             "repository": "quinceproject/quince_feature_rank",
-            "version": "0.1.4",
-            "package": "https://github.com/quinceproject/quince_feature_rank/releases/download/v0.1.4/quince_feature_rank.zip",
-            "sha256": "ce2e3345674ec5782513b92f137954dde472a3ae9393f9e91eda99faabccc0d6",
-            "notes": "https://github.com/quinceproject/quince_feature_rank/releases/tag/v0.1.4"
+            "version": "0.2.0",
+            "package": "https://github.com/quinceproject/quince_feature_rank/releases/download/v0.2.0/quince_feature_rank.zip",
+            "sha256": "3c4718fce19efd1b537b34796e2e10d9c1cd331a06e672409653413db238847d",
+            "notes": "https://github.com/quinceproject/quince_feature_rank/releases/tag/v0.2.0"
         },
         "quince_gpsr": {
             "repository": "quinceproject/quince_gpsr",

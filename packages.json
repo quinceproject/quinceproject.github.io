@@ -1459,6 +1459,24 @@
             }
         },
         "quinceproject/feature-rank": {
+            "0.2.0": {
+                "name": "quinceproject/feature-rank",
+                "version": "0.2.0",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_feature_rank",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_feature_rank"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_feature_rank/releases/download/v0.2.0/quince_feature_rank.zip"
+                },
+                "time": "2026-11-23T10:43:05Z"
+            },
             "0.1.4": {
                 "name": "quinceproject/feature-rank",
                 "version": "0.1.4",
@@ -2450,7 +2468,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-23T09:45:45Z"
+                "time": "2026-11-23T10:43:05Z"
             }
         },
         "quinceproject/recaptcha": {
