@@ -313,6 +313,24 @@
             }
         },
         "quinceproject/cmp": {
+            "0.4.6": {
+                "name": "quinceproject/cmp",
+                "version": "0.4.6",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_cmp",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_cmp"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_cmp/releases/download/v0.4.6/quince_cmp.zip"
+                },
+                "time": "2026-11-24T11:57:06Z"
+            },
             "0.4.5": {
                 "name": "quinceproject/cmp",
                 "version": "0.4.5",
@@ -2451,9 +2469,9 @@
             }
         },
         "quinceproject/quince": {
-            "2026.11.23": {
+            "2026.11.24": {
                 "name": "quinceproject/quince",
-                "version": "2026.11.23",
+                "version": "2026.11.24",
                 "type": "metapackage",
                 "description": "Quince Engine, the Quince theme and every Quince module",
                 "license": [
@@ -2486,7 +2504,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-23T20:28:48Z"
+                "time": "2026-11-24T11:57:06Z"
             }
         },
         "quinceproject/recaptcha": {
