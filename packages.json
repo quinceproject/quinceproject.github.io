@@ -915,6 +915,24 @@
             }
         },
         "quinceproject/engine": {
+            "0.10.9": {
+                "name": "quinceproject/engine",
+                "version": "0.10.9",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_engine",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_engine"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.9/quince_engine.zip"
+                },
+                "time": "2026-11-24T12:29:17Z"
+            },
             "0.10.8": {
                 "name": "quinceproject/engine",
                 "version": "0.10.8",
@@ -1916,6 +1934,26 @@
                 "time": "2026-11-10T08:47:09Z"
             }
         },
+        "quinceproject/notifuse": {
+            "0.1.0": {
+                "name": "quinceproject/notifuse",
+                "version": "0.1.0",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_notifuse",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_notifuse"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_notifuse/releases/download/v0.1.0/quince_notifuse.zip"
+                },
+                "time": "2026-11-24T12:26:41Z"
+            }
+        },
         "quinceproject/offers": {
             "0.4.10": {
                 "name": "quinceproject/offers",
@@ -2492,6 +2530,7 @@
                     "quinceproject/gpsr": "*",
                     "quinceproject/insight": "*",
                     "quinceproject/linkblocks": "*",
+                    "quinceproject/notifuse": "*",
                     "quinceproject/offers": "*",
                     "quinceproject/omnibus": "*",
                     "quinceproject/product-section": "*",
@@ -2504,7 +2543,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-24T11:57:06Z"
+                "time": "2026-11-24T12:29:17Z"
             }
         },
         "quinceproject/recaptcha": {
