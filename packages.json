@@ -549,6 +549,24 @@
             }
         },
         "quinceproject/contacts": {
+            "0.6.1": {
+                "name": "quinceproject/contacts",
+                "version": "0.6.1",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_contacts",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_contacts"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_contacts/releases/download/v0.6.1/quince_contacts.zip"
+                },
+                "time": "2026-11-25T21:03:35Z"
+            },
             "0.6.0": {
                 "name": "quinceproject/contacts",
                 "version": "0.6.0",
@@ -2655,7 +2673,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-25T20:50:20Z"
+                "time": "2026-11-25T21:03:35Z"
             }
         },
         "quinceproject/recaptcha": {
