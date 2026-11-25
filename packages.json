@@ -549,6 +549,24 @@
             }
         },
         "quinceproject/contacts": {
+            "0.6.0": {
+                "name": "quinceproject/contacts",
+                "version": "0.6.0",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_contacts",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_contacts"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_contacts/releases/download/v0.6.0/quince_contacts.zip"
+                },
+                "time": "2026-11-25T19:53:14Z"
+            },
             "0.5.0": {
                 "name": "quinceproject/contacts",
                 "version": "0.5.0",
@@ -951,6 +969,24 @@
             }
         },
         "quinceproject/engine": {
+            "0.10.10": {
+                "name": "quinceproject/engine",
+                "version": "0.10.10",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_engine",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_engine"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.10/quince_engine.zip"
+                },
+                "time": "2026-11-25T19:53:10Z"
+            },
             "0.10.9": {
                 "name": "quinceproject/engine",
                 "version": "0.10.9",
@@ -2579,7 +2615,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-25T14:57:59Z"
+                "time": "2026-11-25T19:53:14Z"
             }
         },
         "quinceproject/recaptcha": {
