@@ -2251,10 +2251,10 @@
         },
         "quince_cmp": {
             "repository": "quinceproject/quince_cmp",
-            "version": "0.4.7",
-            "package": "https://github.com/quinceproject/quince_cmp/releases/download/v0.4.7/quince_cmp.zip",
-            "sha256": "f90fdcc91488b5c524ba93ea66eb9d46feed0b48a786cdd4ca3f34d277cebb81",
-            "notes": "https://github.com/quinceproject/quince_cmp/releases/tag/v0.4.7"
+            "version": "0.4.8",
+            "package": "https://github.com/quinceproject/quince_cmp/releases/download/v0.4.8/quince_cmp.zip",
+            "sha256": "9a27edac9b256d8ea3ba0edd602a0b9306efa713285874cfa396d429d831af0e",
+            "notes": "https://github.com/quinceproject/quince_cmp/releases/tag/v0.4.8"
         },
         "quince_contacts": {
             "repository": "quinceproject/quince_contacts",
