@@ -2237,10 +2237,10 @@
         },
         "quince_block": {
             "repository": "quinceproject/quince_block",
-            "version": "0.1.3",
-            "package": "https://github.com/quinceproject/quince_block/releases/download/v0.1.3/quince_block.zip",
-            "sha256": "b72649775953e784624af667d2af4618e7b50715966ea2eeb89f0fc8e012ee00",
-            "notes": "https://github.com/quinceproject/quince_block/releases/tag/v0.1.3"
+            "version": "0.1.4",
+            "package": "https://github.com/quinceproject/quince_block/releases/download/v0.1.4/quince_block.zip",
+            "sha256": "ca1d04f2b903354a99ba68c8d7cc81dca348af7866910eb2ff85981154fc041e",
+            "notes": "https://github.com/quinceproject/quince_block/releases/tag/v0.1.4"
         },
         "quince_blog": {
             "repository": "quinceproject/quince_blog",

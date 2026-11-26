@@ -93,6 +93,24 @@
             }
         },
         "quinceproject/block": {
+            "0.1.4": {
+                "name": "quinceproject/block",
+                "version": "0.1.4",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_block",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_block"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_block/releases/download/v0.1.4/quince_block.zip"
+                },
+                "time": "2026-11-26T10:26:32Z"
+            },
             "0.1.3": {
                 "name": "quinceproject/block",
                 "version": "0.1.3",
@@ -2763,7 +2781,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-26T00:30:34Z"
+                "time": "2026-11-26T10:26:32Z"
             }
         },
         "quinceproject/recaptcha": {
