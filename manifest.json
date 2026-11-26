@@ -2307,10 +2307,10 @@
         },
         "quince_insight": {
             "repository": "quinceproject/quince_insight",
-            "version": "0.1.8",
-            "package": "https://github.com/quinceproject/quince_insight/releases/download/v0.1.8/quince_insight.zip",
-            "sha256": "cb01e21562f0a17bf5528d67892dc0f9fa5b2c5ed7b890f7b8852fae3fe11b80",
-            "notes": "https://github.com/quinceproject/quince_insight/releases/tag/v0.1.8"
+            "version": "0.1.9",
+            "package": "https://github.com/quinceproject/quince_insight/releases/download/v0.1.9/quince_insight.zip",
+            "sha256": "237ac0f50a89b28daedf3198e1a887f2b4bf76c8b9722479ea06c7f4ee0a1821",
+            "notes": "https://github.com/quinceproject/quince_insight/releases/tag/v0.1.9"
         },
         "quince_linkblocks": {
             "repository": "quinceproject/quince_linkblocks",
