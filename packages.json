@@ -1841,6 +1841,24 @@
             }
         },
         "quinceproject/insight": {
+            "0.1.8": {
+                "name": "quinceproject/insight",
+                "version": "0.1.8",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_insight",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_insight"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_insight/releases/download/v0.1.8/quince_insight.zip"
+                },
+                "time": "2026-11-26T00:14:18Z"
+            },
             "0.1.7": {
                 "name": "quinceproject/insight",
                 "version": "0.1.7",
@@ -2691,9 +2709,9 @@
             }
         },
         "quinceproject/quince": {
-            "2026.11.25": {
+            "2026.11.26": {
                 "name": "quinceproject/quince",
-                "version": "2026.11.25",
+                "version": "2026.11.26",
                 "type": "metapackage",
                 "description": "Quince Engine, the Quince theme and every Quince module",
                 "license": [
@@ -2727,7 +2745,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-25T23:55:51Z"
+                "time": "2026-11-26T00:14:18Z"
             }
         },
         "quinceproject/recaptcha": {
