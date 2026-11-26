@@ -1005,6 +1005,24 @@
             }
         },
         "quinceproject/engine": {
+            "0.10.11": {
+                "name": "quinceproject/engine",
+                "version": "0.10.11",
+                "type": "prestashop-module",
+                "license": [],
+                "homepage": "https://github.com/quinceproject/quince_engine",
+                "require": {
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "quince_engine"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.11/quince_engine.zip"
+                },
+                "time": "2026-11-26T11:14:04Z"
+            },
             "0.10.10": {
                 "name": "quinceproject/engine",
                 "version": "0.10.10",
@@ -2781,7 +2799,7 @@
                     "quinceproject/theme": "*",
                     "quinceproject/withdrawal": "*"
                 },
-                "time": "2026-11-26T10:26:32Z"
+                "time": "2026-11-26T11:14:04Z"
             }
         },
         "quinceproject/recaptcha": {
