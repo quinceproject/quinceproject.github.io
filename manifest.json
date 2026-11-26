@@ -2258,10 +2258,10 @@
         },
         "quince_contacts": {
             "repository": "quinceproject/quince_contacts",
-            "version": "0.7.0",
-            "package": "https://github.com/quinceproject/quince_contacts/releases/download/v0.7.0/quince_contacts.zip",
-            "sha256": "f592e934e112cc260a87c99b8c3efecc770316b2cb6a8f38b960633141400102",
-            "notes": "https://github.com/quinceproject/quince_contacts/releases/tag/v0.7.0"
+            "version": "0.7.1",
+            "package": "https://github.com/quinceproject/quince_contacts/releases/download/v0.7.1/quince_contacts.zip",
+            "sha256": "dd2107c8e8b3c45010211bf7340e4f27e67743f7478137f54d9e5f336a604ceb",
+            "notes": "https://github.com/quinceproject/quince_contacts/releases/tag/v0.7.1"
         },
         "quince_crossselling": {
             "repository": "quinceproject/quince_crossselling",
