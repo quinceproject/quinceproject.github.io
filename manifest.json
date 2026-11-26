@@ -2279,10 +2279,10 @@
         },
         "quince_engine": {
             "repository": "quinceproject/quince_engine",
-            "version": "0.10.11",
-            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.11/quince_engine.zip",
-            "sha256": "61fdeaca394b091b5077d60f6746b451f26f4e1b87f44432685badb26cb11791",
-            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.10.11"
+            "version": "0.10.12",
+            "package": "https://github.com/quinceproject/quince_engine/releases/download/v0.10.12/quince_engine.zip",
+            "sha256": "1c9117fcfc78e05b2600770a46475897ac0552a44dbc0ed696ca0ae204443c85",
+            "notes": "https://github.com/quinceproject/quince_engine/releases/tag/v0.10.12"
         },
         "quince_events": {
             "repository": "quinceproject/quince_events",
@@ -2384,10 +2384,10 @@
         },
         "quince_slider": {
             "repository": "quinceproject/quince_slider",
-            "version": "0.1.5",
-            "package": "https://github.com/quinceproject/quince_slider/releases/download/v0.1.5/quince_slider.zip",
-            "sha256": "f10d05b629c7a6859618fe01bbb4407b94c7d088e6e7c0e7ea4a35586cf79255",
-            "notes": "https://github.com/quinceproject/quince_slider/releases/tag/v0.1.5"
+            "version": "0.1.6",
+            "package": "https://github.com/quinceproject/quince_slider/releases/download/v0.1.6/quince_slider.zip",
+            "sha256": "c3b6c95b906a5f9bf9af16f9f94501d3dd9ba00060a0d819a1b578e5437d7a61",
+            "notes": "https://github.com/quinceproject/quince_slider/releases/tag/v0.1.6"
         },
         "quince_withdrawal": {
             "repository": "quinceproject/quince_withdrawal",
