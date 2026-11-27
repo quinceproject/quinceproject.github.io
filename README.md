@@ -190,6 +190,6 @@ taken from ai.robots.txt stays under its MIT License, see
 ## Supporting the project
 
 Quince modules are free downloads and there is nothing to buy. If they are useful to
-you, you can support development by buying me a coffee:
+you, you can support development on Ko-fi:
 
-**[buymeacoffee.com/marcingajewski](https://buymeacoffee.com/marcingajewski)**
+**[Ko-fi](https://ko-fi.com/quinceproject)**
